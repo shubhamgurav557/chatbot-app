@@ -25,7 +25,7 @@ export const authOptions: AuthOptions = {
           where: { email: credentials.email },
         });
 
-        if (!user || !bcrypt.compareSync(credentials.password, user.password)) {
+        if (!user || !user.password || !bcrypt.compareSync(credentials.password, user.password)) {
           throw new Error("Invalid email or password");
         }
 
@@ -51,7 +51,7 @@ export const authOptions: AuthOptions = {
       if (token?.id) {
         session.user = {
           ...session.user,
-          id: token.id, 
+          id: token.id as string, 
         };
       }
       return session;
