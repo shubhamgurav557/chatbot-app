@@ -2,9 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Enabling experimental app directory
-  experimental: {
-    appDir: true, // Enables the app directory
-  },
+  experimental: {},
   // Adding API route handling if needed
   api: {
     bodyParser: true, // Enables body parsing for API routes

@@ -140,7 +140,7 @@ const ChatPage = () => {
                                             </pre>
                                             {explanation && (
                                                 <div className="mt-4 text-sm text-gray-700">
-                                                    <ul className="list-inside list-disc pl-5 mt-2 list-none">
+                                                    <ul className="list-inside list-disc pl-5 mt-2">
                                                         {formatExplanation(explanation)}
                                                     </ul>
                                                 </div>
