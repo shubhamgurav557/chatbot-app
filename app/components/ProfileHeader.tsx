@@ -27,7 +27,7 @@ const ProfileHeader = () => {
   };
 
   return (
-    <>
+    <div className="relative">
       <div className="profile flex items-center gap-2 cursor-pointer" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
         <div className="details flex flex-col gap-0 items-end">
           <span className="text-md mb-0">{session?.user.name}</span>
@@ -41,7 +41,7 @@ const ProfileHeader = () => {
       {isDropdownOpen && (
         <div
           ref={dropdownRef}
-          className="dropdown absolute mt-[8em] right-5 w-40 bg-gray-400 shadow-lg rounded-md p-2 z-10"
+          className="dropdown absolute mt-2 right-0 w-40 bg-gray-400 shadow-lg rounded-md p-2 z-10"
         >
           <button
             onClick={handleLogout}
@@ -52,7 +52,7 @@ const ProfileHeader = () => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

@@ -56,7 +56,7 @@ const SignUpPage = () => {
   return (
     !session && (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
-        <div className="w-[450px]">
+        <div className="lg:w-[450px]">
           <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
           <form onSubmit={handleSubmit} className="w-full space-y-4">
             {error && <p className="text-red-500">{error}</p>}

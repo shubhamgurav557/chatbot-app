@@ -13,10 +13,11 @@ const LoginPage = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (session) {
+    if (status === 'authenticated') {
       navigate.push('/');
     }
-  }, [session])
+  }, [status, navigate]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ const LoginPage = () => {
   return (
     !session && (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
-        <div className="w-[450px]">
+        <div className="lg:w-[450px]">
           <h1 className="text-2xl font-bold mb-4">Login</h1>
           <form onSubmit={handleSubmit} className="w-full space-y-4">
             {error && <p className="text-red-500">{error}</p>}

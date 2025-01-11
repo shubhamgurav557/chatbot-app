@@ -38,10 +38,11 @@ const ChatPage = () => {
     };
 
     useEffect(() => {
-        if(!session){
+        if (status === 'unauthenticated') {
             navigate.push('/');
         }
-    }, [session])
+    }, [status, navigate]);
+    
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
