@@ -6,8 +6,13 @@ import { useChat } from 'ai/react';
 import { useState, useEffect, useRef } from 'react';
 import { FiEye, FiEyeOff, FiDownload, FiCopy, FiSend } from 'react-icons/fi';
 import ProfileHeader from '../components/ProfileHeader';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const ChatPage = () => {
+    const navigate = useRouter();
+    const { data: session, status } = useSession();
+
     const { messages, input, handleInputChange, handleSubmit } = useChat({
         api: '/api/genai',
     });
@@ -31,6 +36,12 @@ const ChatPage = () => {
         navigator.clipboard.writeText(code);
         alert('Code copied to clipboard!');
     };
+
+    useEffect(() => {
+        if(!session){
+            navigate.push('/');
+        }
+    }, [session])
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
